@@ -4,7 +4,7 @@ const PORT = 3000;
 
 // Root route
 app.get('/', (req, res) => {
-    res.send('Welcome to node 1');
+    res.send('Welcome to node 1!');
 });
 
 // Start the server
