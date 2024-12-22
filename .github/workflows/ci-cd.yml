@@ -35,5 +35,5 @@ jobs:
           cd /var/www/node-1
           git pull origin main
           npm install
-          npm start
+          sudo systemctl restart node-app
           EOF
