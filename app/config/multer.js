@@ -10,7 +10,7 @@ const DIR_UPLOADS = process.env.NODE_ENV === 'test' ? 'test/uploads/' : process.
 
 const BASE_DIR_PATH = _path.resolve(__dirname, '..', DIR_UPLOADS);
 
-console.log(BASE_DIR_PATH)
+console.log("BASE_DIR_PATH", BASE_DIR_PATH)
 
 // 2b915476f48ee3c7a430df2cd22b1674-noun-outdoor-2314775
 module.exports = {
