@@ -29,9 +29,9 @@ jobs:
         env:
           HOST: ${{ secrets.VPS_HOST }}
           USER: ${{ secrets.VPS_USER }}
-          KEY: ${{ secrets.VPS_KEY }}
+          PASSWORD: ${{ secrets.VPS_KEY }}
         run: |
-          ssh -i "${KEY}" ${USER}@${HOST} << 'EOF'
+          sshpass -p "${PASSWORD}" ssh -o StrictHostKeyChecking=no ${USER}@${HOST} << 'EOF'
           cd /var/www
           git pull origin main
           npm install
