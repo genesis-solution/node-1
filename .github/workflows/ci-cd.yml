@@ -24,10 +24,24 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Deploy to Ubuntu VPS
-      - name: Deploy to VPS
+      # Deploy to VPS 1
+      - name: Deploy to VPS 1
         env:
-          HOST: ${{ secrets.VPS_HOST }}
+          HOST: ${{ secrets.VPS_HOST_1 }}
+          USER: ${{ secrets.VPS_USER }}
+          PASSWORD: ${{ secrets.VPS_KEY }}
+        run: |
+          sshpass -p "${PASSWORD}" ssh -o StrictHostKeyChecking=no ${USER}@${HOST} << 'EOF'
+          cd /var/www/node-1
+          git pull origin master
+          npm install
+          sudo systemctl restart node-app
+          EOF
+
+      # Deploy to VPS 2
+      - name: Deploy to VPS 2
+        env:
+          HOST: ${{ secrets.VPS_HOST_2 }}
           USER: ${{ secrets.VPS_USER }}
           PASSWORD: ${{ secrets.VPS_KEY }}
         run: |
