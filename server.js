@@ -4,7 +4,7 @@ const PORT = 3000;
 
 // Root route
 app.get('/', (req, res) => {
-    res.send('Welcome to NodeJS by CI/CD!');
+    res.send('Welcome to NodeJS by Jenkins!');
 });
 
 // Start the server
