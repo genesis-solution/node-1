@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    environment {
+        VPS_IP = '149.102.145.31'
+        APP_DIR = '/var/www/node-1'
+        CREDENTIALS_ID = 'vps-node1' // The ID of the credentials stored in Jenkins
+    }
+    stages {
+        stage('Clone Repository Locally') {
+            steps {
+                git branch: 'main', url: 'https://github.com/genesis-solution/node-1.git'
+            }
+        }
+        stage('Install Dependencies Locally') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Deploy to VPS') {
+            steps {
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'vps-node1',
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: '**/*',
+                                    remoteDirectory: "${APP_DIR}",
+                                    execCommand: '''
+                                    mkdir -p ${APP_DIR}
+                                    cd ${APP_DIR}
+                                    if [ ! -d .git ]; then
+                                        git clone https://github.com/genesis-solution/node-1.git .
+                                    fi
+                                    git reset --hard
+                                    git clean -fd
+                                    git pull origin main
+                                    npm install
+                                    sudo systemctl restart node-app
+                                    '''
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
+    }
+}
