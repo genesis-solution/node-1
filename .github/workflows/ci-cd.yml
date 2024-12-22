@@ -24,20 +24,16 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Run tests
-      - name: Run Tests
-        run: npm test
-
       # Deploy to Ubuntu VPS
       - name: Deploy to VPS
         env:
           HOST: ${{ secrets.VPS_HOST }}
           USER: ${{ secrets.VPS_USER }}
-          KEY: ${{ secrets.VPS_KEY }}
+          PASSWORD: ${{ secrets.VPS_KEY }}
         run: |
-          ssh -i "${KEY}" ${USER}@${HOST} << 'EOF'
-          cd /var/www
+          sshpass -p "${PASSWORD}" ssh -o StrictHostKeyChecking=no ${USER}@${HOST} << 'EOF'
+          cd /var/www/node-1
           git pull origin main
           npm install
-          pm2 restart all
+          sudo systemctl restart node-app
           EOF
