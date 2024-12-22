@@ -1,0 +1,1 @@
+import{w as r,l as e}from"./index-CYYMkemY.js";function o({text:t}){return e("button",{type:"submit",className:"w-full mt-6  font-semibold shadow-md text-brand-primary hover:bg-brand-primary duration-200 hover:text-black focus:ring-0 focus:outline-none rounded-sm text-sm px-5 py-2.5 text-center",children:t})}o.propTypes={text:r.string};export{o as S};

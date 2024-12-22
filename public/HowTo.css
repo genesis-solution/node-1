@@ -1,0 +1,10 @@
+.element {
+    transition: height 0.5s ease;
+    /* Add any other desired CSS properties and values */
+  }
+  
+  .element:hover {
+    height: 260px;
+    transition: height 0.5s ease;
+  }
+  

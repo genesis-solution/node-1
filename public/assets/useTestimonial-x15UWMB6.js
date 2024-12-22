@@ -1,0 +1,1 @@
+import{t as a,k as e}from"./index-7VV-N64s.js";function r(){return a({queryKey:["testimonial"],queryFn:async({signal:t})=>(await e.get("/testimonial",{signal:t})).data,initialData:[]})}export{r as u};

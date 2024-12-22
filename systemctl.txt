@@ -1,0 +1,27 @@
+sudo nano /etc/systemd/system/node-app.service
+
+
+
+[Unit]
+Description=Your Node.js Application
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /var/www/node-1/server.js
+Restart=always
+User=www-data
+Group=www-data
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/var/www/node-1
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+sudo systemctl daemon-reload
+sudo systemctl start node-app
+sudo systemctl enable node-app
+sudo systemctl status node-app

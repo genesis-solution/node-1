@@ -1,0 +1,1 @@
+import{t as o,k as i}from"./index-CYYMkemY.js";function c(){const{data:e,isLoading:r,isError:a,refetch:t}=o({queryKey:["categories"],queryFn:async({signal:s})=>(await i.get("/category",{signal:s})).data,initialData:[]});return{categories:e,isLoading:r,isError:a,refetch:t}}export{c as u};

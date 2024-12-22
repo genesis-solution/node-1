@@ -1,0 +1,1 @@
+import{x as a,bn as u,k as c}from"./index-7VV-N64s.js";function f(o){const s=o,[n,i]=a();return u({queryKey:["bookings",s],queryFn:async(e,t)=>{const r=n.get("user");return r&&(e={...e,user:r}),e={...e,...s},(await c.get("/order",{signal:t,params:e})).data}})}export{f as u};

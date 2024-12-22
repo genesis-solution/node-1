@@ -1,0 +1,1 @@
+import{w as r,l as t}from"./index-7VV-N64s.js";function d(e){const{extra:s,children:a,...o}=e;return t("div",{className:`!z-5 relative flex flex-col rounded-[20px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 ${s} `,...o,children:a})}d.propTypes={extra:r.string,children:r.any,rest:r.any};export{d as C};

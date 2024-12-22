@@ -1,0 +1,1 @@
+import{t as s,k as t}from"./index-CYYMkemY.js";function n({id:e}={id:""}){return s({queryKey:["user",e],queryFn:async({signal:r})=>(await t.get(`/userdetails/${e||""}`,{signal:r})).data,initialData:{}})}export{n as u};

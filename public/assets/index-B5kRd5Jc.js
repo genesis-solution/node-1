@@ -1,0 +1,1 @@
+import{l as r,F as t}from"./index-CYYMkemY.js";import o from"./Support-DA9Oz2AP.js";import"./useSupportMRT-DX0goMi2.js";import"./AvatarGroup-DkV5TBGl.js";function n(){return r(t,{children:r(o,{})})}export{n as default};
