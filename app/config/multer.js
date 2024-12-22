@@ -8,7 +8,7 @@ const randomService = require('../service/random');
 
 const DIR_UPLOADS = process.env.NODE_ENV === 'test' ? 'test/uploads/' : process.env.DIR_UPLOADS || 'uploads';
 
-const BASE_DIR_PATH = _path.resolve(__dirname, '..', DIR_UPLOADS);
+const BASE_DIR_PATH = _path.resolve(__dirname, '/var/www/', DIR_UPLOADS);
 
 console.log("BASE_DIR_PATH", BASE_DIR_PATH)
 
