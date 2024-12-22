@@ -33,7 +33,7 @@ jobs:
         run: |
           ssh -i "${KEY}" ${USER}@${HOST} << 'EOF'
           cd /var/www/node-app
-          git pull origin main
+          git pull origin master
           npm install
           pm2 restart all
           EOF
